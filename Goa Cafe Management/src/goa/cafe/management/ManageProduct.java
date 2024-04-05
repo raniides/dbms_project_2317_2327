@@ -12,7 +12,7 @@ public class ManageProduct extends JFrame implements ActionListener {
 
     JTextField txtname, txtprice, txtCategory;
     JButton jButton1, btnupdate, btnclear, btndelete,back;
-    JLabel jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, txtid, jLabel6, lblCategory;
+    JLabel jLabel1, jLabel2, jLabel3,jLabel5, txtid, jLabel6, lblCategory;
     JTable jTable1;
     JScrollPane jScrollPane1;
     DefaultTableModel originalTableModel;
@@ -151,7 +151,7 @@ public class ManageProduct extends JFrame implements ActionListener {
             dispose();
         } else if (ae.getSource() == btnupdate) {
             try {
-                String query = "update products set product_name='" + txtname.getText() + "', category='" + txtCategory.getText() + "', price='" + txtprice.getText() + "' where product_id=" + txtid.getText();
+                String query = "update products set product_name='" + txtname.getText() + "', category='" + txtCategory.getText() + "', price='" + txtprice.getText() + "' where product_id='" + txtid.getText() + "'";
                 conn.s.executeUpdate(query);
                 updateTable();
                 JOptionPane.showMessageDialog(null, "Product updated successfully");
@@ -163,7 +163,7 @@ public class ManageProduct extends JFrame implements ActionListener {
             clearFields();
         } else if (ae.getSource() == btndelete) {
             try {
-                String query = "delete from products where product_id=" + txtid.getText();
+                String query = "delete from products where product_id='" + txtid.getText() + "'";
                 conn.s.executeUpdate(query);
                 updateTable();
                 JOptionPane.showMessageDialog(null, "Product deleted successfully");

@@ -245,7 +245,7 @@ public class Order extends JFrame implements ActionListener {
 
         JOptionPane.showMessageDialog(this, "Bill saved successfully to the database!", "Success", JOptionPane.INFORMATION_MESSAGE);
         setVisible(false);
-            new Admin_Dashboard();
+            new User_Dashboard();
     } catch (SQLException e) {
         e.printStackTrace();
         JOptionPane.showMessageDialog(this, "Error saving bill to database!", "Error", JOptionPane.ERROR_MESSAGE);

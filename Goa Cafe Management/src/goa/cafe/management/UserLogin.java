@@ -37,13 +37,13 @@ public class UserLogin extends JFrame implements ActionListener{
         JLabel userlogin = new JLabel("USER LOGIN");
         userlogin.setBounds(510,300,300,45);
         userlogin.setForeground(Color.CYAN);
-        userlogin.setFont(new Font("serif",Font.BOLD, 35));
+        userlogin.setFont(new Font("Tahoma",Font.BOLD, 35));
         image.add(userlogin);
             
         JLabel user = new JLabel("Username");
         user.setBounds(470,380,140,35);
-        user.setForeground(Color.MAGENTA);
-        user.setFont(new Font("serif",Font.BOLD, 25));
+        user.setForeground(Color.WHITE);
+        user.setFont(new Font("Tahoma",Font.BOLD, 25));
         image.add(user);
         
         username = new JTextField();
@@ -53,8 +53,8 @@ public class UserLogin extends JFrame implements ActionListener{
                 
         JLabel password = new JLabel("Password");
         password.setBounds(470,460,140,35);
-        password.setForeground(Color.MAGENTA);
-        password.setFont(new Font("serif",Font.BOLD, 25));
+        password.setForeground(Color.WHITE);
+        password.setFont(new Font("Tahoma",Font.BOLD, 25));
         image.add(password);
        
         pass = new JPasswordField();
@@ -97,7 +97,7 @@ public class UserLogin extends JFrame implements ActionListener{
             try{
                 Conn c = new Conn();
                 
-                String query = "select * from User_Login where userlogin = '" + user + "' and  password = '" + passs +"' ";
+                String query = "select * from User_Login where username = '" + user + "' and  password = '" + passs +"' ";
                 
                 ResultSet rs = c.s.executeQuery(query);
                 

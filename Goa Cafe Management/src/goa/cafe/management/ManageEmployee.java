@@ -50,7 +50,7 @@ public class ManageEmployee extends JFrame implements ActionListener{
         add(lblid);
         
         e_id = new Choice();
-        e_id.setBounds(750,50,100,25);
+        e_id.setBounds(750,50,130,25);
         e_id.setFont(new Font("Tahoma",Font.PLAIN,16));
         add(e_id);
         
@@ -59,7 +59,7 @@ public class ManageEmployee extends JFrame implements ActionListener{
             ResultSet rs = c.s.executeQuery("select * from employee");
             
             while(rs.next()){
-                 e_id.add(rs.getString("eid"));
+                 e_id.add(rs.getString("id"));
             }
             
         }catch(Exception e){
@@ -69,7 +69,7 @@ public class ManageEmployee extends JFrame implements ActionListener{
         show = new JButton("Show");
         show.setForeground(Color.BLACK);
         show.setBackground(Color.WHITE);
-        show.setBounds(870,50,100,30);
+        show.setBounds(900,50,100,30);
         show.addActionListener(this);
         add(show);
         
@@ -178,7 +178,7 @@ public class ManageEmployee extends JFrame implements ActionListener{
             
         }else if(ae.getSource() == show){
             try {
-            String query1 = "select * from employee where eid = '"+e_id.getSelectedItem()+"'";
+            String query1 = "select * from employee where id = '"+e_id.getSelectedItem()+"'";
             
             Conn c = new Conn();
             ResultSet rs;
@@ -196,7 +196,7 @@ public class ManageEmployee extends JFrame implements ActionListener{
                 
                 String emp_id = e_id.getSelectedItem();
                 
-                String query1 = "delete from employee where eid = '"+emp_id+"'";
+                String query1 = "delete from employee where id = '"+emp_id+"'";
                 
                 c.s.executeUpdate(query1);
                 
@@ -208,7 +208,7 @@ public class ManageEmployee extends JFrame implements ActionListener{
                 
                 table.setModel(DbUtils.resultSetToTableModel(rs4));
                 
-                JOptionPane.showMessageDialog(null, "Data Updated Successfully");
+                JOptionPane.showMessageDialog(null, "Employee Removed Successfully");
                 
             }catch(Exception e){
                 e.printStackTrace();

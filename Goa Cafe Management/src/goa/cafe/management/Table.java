@@ -94,9 +94,6 @@ public class Table extends JFrame implements ActionListener{
                  conn.s.executeUpdate(query1);
                  
                  JOptionPane.showMessageDialog(null,"Table added successfully");
-            
-                 setVisible(false);
-                 new Admin_Dashboard();
                  
              }catch (Exception e){
                  e.printStackTrace();
